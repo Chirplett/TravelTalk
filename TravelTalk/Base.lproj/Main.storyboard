@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="93s-jH-IbK">
-                                <rect key="frame" x="0.0" y="226" width="393" height="509"/>
+                                <rect key="frame" x="0.0" y="182" width="393" height="602"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ECC-0b-T9b">
                                     <size key="itemSize" width="128" height="128"/>
@@ -39,11 +39,8 @@
                                 </cells>
                             </collectionView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7O3-ze-uyl">
-                                <rect key="frame" x="0.0" y="162" width="393" height="56"/>
+                                <rect key="frame" x="0.0" y="118" width="393" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kU1-jm-gvp"/>
-                                </connections>
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -59,14 +56,68 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="goY-0Z-ny6"/>
-                    <connections>
-                        <outlet property="chatListCollectionView" destination="93s-jH-IbK" id="1EO-dh-txm"/>
-                        <outlet property="searchChatListSearchBar" destination="7O3-ze-uyl" id="5t5-sN-Kht"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2002.2900763358778" y="-29.577464788732396"/>
+            <point key="canvasLocation" x="1927" y="-392"/>
+        </scene>
+        <!--Chat List Collection View Controller-->
+        <scene sceneID="tCO-ie-vec">
+            <objects>
+                <viewController id="7fM-V0-FIO" customClass="ChatListCollectionViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V4J-1b-Emh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XCx-3e-DBY">
+                                <rect key="frame" x="0.0" y="226" width="393" height="509"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bLz-0z-J4I">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JN3-Bn-kvt">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sTf-2E-he9">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xYW-6P-b2N">
+                                <rect key="frame" x="0.0" y="162" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7fM-V0-FIO" id="Axj-Od-Whs"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h1e-bF-1i3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xYW-6P-b2N" firstAttribute="trailing" secondItem="h1e-bF-1i3" secondAttribute="trailing" id="0ua-Wq-oKv"/>
+                            <constraint firstItem="xYW-6P-b2N" firstAttribute="top" secondItem="h1e-bF-1i3" secondAttribute="top" id="6UA-pa-VpY"/>
+                            <constraint firstItem="h1e-bF-1i3" firstAttribute="trailing" secondItem="XCx-3e-DBY" secondAttribute="trailing" id="7fT-pp-a0A"/>
+                            <constraint firstItem="h1e-bF-1i3" firstAttribute="bottom" secondItem="XCx-3e-DBY" secondAttribute="bottom" id="NOE-Tx-cZZ"/>
+                            <constraint firstItem="XCx-3e-DBY" firstAttribute="top" secondItem="xYW-6P-b2N" secondAttribute="bottom" constant="8" id="ZSU-wr-9HX"/>
+                            <constraint firstItem="xYW-6P-b2N" firstAttribute="leading" secondItem="h1e-bF-1i3" secondAttribute="leading" id="eBd-6k-aEe"/>
+                            <constraint firstItem="XCx-3e-DBY" firstAttribute="leading" secondItem="h1e-bF-1i3" secondAttribute="leading" id="gQt-Vy-wHs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="I0z-zI-VzA"/>
+                    <connections>
+                        <outlet property="chatListCollectionView" destination="XCx-3e-DBY" id="6vR-Vr-Tj0"/>
+                        <outlet property="searchChatsSearchBar" destination="xYW-6P-b2N" id="PEY-W6-F0x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NmY-Sp-Xej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2758" y="-13"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aC5-9Y-fbX">
@@ -98,7 +149,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CZr-sR-0py"/>
+                        <segue destination="7fM-V0-FIO" kind="relationship" relationship="rootViewController" id="tlS-CE-fkA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Or3-rF-bAD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
