@@ -57,7 +57,7 @@ class ChatListCollectionViewController: UIViewController, UICollectionViewDelega
         cell.chatRoomImageView.layer.cornerRadius = (cell.bounds.height-24)/2
         cell.chatRoomImageView.clipsToBounds = true
         
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         let currentDate = dateFormatter.date(from: eachChatListData.chatList[eachChatListData.chatList.count-1].date) ?? Date()
         
         dateFormatter.dateFormat = "yy.MM.dd"
@@ -68,14 +68,18 @@ class ChatListCollectionViewController: UIViewController, UICollectionViewDelega
         return cell
     }
     
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        
-//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//        
-////        let viewController = storyBoard.instantiateViewController(withIdentifier: 아직 안 만든 디테일뷰) as! "아직 안 만든 디테일 뷰"
-//        
-//        
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "ChatTableViewController") as! ChatTableViewController
+        
+        viewController.linkedChatData = chatListData[indexPath.item]
+        
+        navigationController?.pushViewController(viewController, animated: true)
+        
+        
+    }
 
 
 }
