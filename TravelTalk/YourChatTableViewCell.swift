@@ -8,29 +8,48 @@
 import UIKit
 
 class YourChatTableViewCell: UITableViewCell {
+    
+    @IBOutlet var yourProfileImageView: UIImageView!
+    @IBOutlet var yourNameLabel: UILabel!
+    @IBOutlet var chatBubbleView: UIView!
+    @IBOutlet var yourMessageLabel: UILabel!
+    @IBOutlet var sentTimeLabel: UILabel!
 
+    static let yourIdentifier = "YourChatTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        yourProfileImageView.contentMode = .scaleAspectFill
         
-//        chatBubbleView.layer.cornerRadius = 10
-//        chatBubbleView.layer.borderColor = UIColor.gray.cgColor
-//        chatBubbleView.layer.borderWidth = 1
-//        chatBubbleView.backgroundColor = .systemGray6
-//        chatBubbleView.clipsToBounds = true
-//        
-//        myMessageLabel.textAlignment = .left
-//        myMessageLabel.font = .systemFont(ofSize: 12, weight: .medium)
-//        myMessageLabel.numberOfLines = 0
-//        myMessageLabel.text = ""
-//        
-//        sentTimeLabel.textAlignment = .center
-//        sentTimeLabel.font = .systemFont(ofSize: 10, weight: .regular)
-//        sentTimeLabel.textColor = .systemGray
-//        sentTimeLabel.text = ""
+        yourNameLabel.textAlignment = .left
+        yourNameLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        yourNameLabel.text = ""
+        
+        chatBubbleView.layer.cornerRadius = 10
+        chatBubbleView.layer.borderColor = UIColor.white.cgColor
+        chatBubbleView.layer.borderWidth = 1
+        chatBubbleView.backgroundColor = .systemGray6
+        chatBubbleView.clipsToBounds = true
+        
+        yourMessageLabel.textAlignment = .left
+        yourMessageLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        yourMessageLabel.numberOfLines = 0
+        yourMessageLabel.text = ""
+        
+        sentTimeLabel.textAlignment = .center
+        sentTimeLabel.font = .systemFont(ofSize: 10, weight: .regular)
+        sentTimeLabel.textColor = .gray
+        sentTimeLabel.text = ""
         
         
     }
 
-
+    func configure(chat: Chat) {
+        
+        
+        
+    }
+    
+    
 }
