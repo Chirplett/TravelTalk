@@ -9,30 +9,50 @@ import UIKit
 
 class ChatCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var friendNameLabel: UILabel!
+    @IBOutlet var chatRoomImageView: UIImageView!
+    @IBOutlet var chatContentView: UIView!
+    @IBOutlet var chatRoomTitleLabel: UILabel!
     @IBOutlet var lastMessageLabel: UILabel!
     @IBOutlet var sentDateLabel: UILabel!
-    @IBOutlet var rightSpaceView: UIView!
+    
     
     static let identifier: String = "ChatCollectionViewCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        profileImageView.contentMode = .scaleAspectFill
+        chatRoomImageView.contentMode = .scaleAspectFill
         
-        friendNameLabel.textAlignment = .left
-        friendNameLabel.font = .systemFont(ofSize: 12, weight: .heavy)
+        chatRoomTitleLabel.textAlignment = .left
+        chatRoomTitleLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
         lastMessageLabel.textAlignment = .left
-        lastMessageLabel.font = .systemFont(ofSize: 12, weight: .bold)
+        lastMessageLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         lastMessageLabel.textColor = .gray
         
         sentDateLabel.textAlignment = .right
-        sentDateLabel.font = .systemFont(ofSize: 8, weight: .regular)
+        sentDateLabel.font = .systemFont(ofSize: 12, weight: .regular)
         sentDateLabel.textColor = .gray
         
     }
-
+    
+    func configure(list: ChatRoom) {
+        
+        let chatRoomPic = list.chatroomImage
+        
+        chatRoomImageView.image = UIImage(named: chatRoomPic)
+        
+        chatRoomTitleLabel.text = list.chatroomName
+        
+        if list.chatList.count == 0 {
+            lastMessageLabel.text = ""
+            sentDateLabel.text = ""
+        } else {
+            lastMessageLabel.text = list.chatList[list.chatList.count-1].message
+            sentDateLabel.text = list.chatList[list.chatList.count-1].date
+            
+        }
+        
+        
+    }
 }
