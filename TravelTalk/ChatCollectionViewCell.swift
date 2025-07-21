@@ -21,7 +21,7 @@ class ChatCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        chatRoomImageView.contentMode = .scaleAspectFill
+        chatRoomImageView.contentMode = .scaleAspectFit
         
         chatRoomTitleLabel.textAlignment = .left
         chatRoomTitleLabel.font = .systemFont(ofSize: 14, weight: .bold)

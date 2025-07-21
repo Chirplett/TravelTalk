@@ -20,16 +20,16 @@ class YourChatTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        yourProfileImageView.contentMode = .scaleAspectFill
+        yourProfileImageView.contentMode = .scaleAspectFit
         
         yourNameLabel.textAlignment = .left
         yourNameLabel.font = .systemFont(ofSize: 12, weight: .medium)
         yourNameLabel.text = ""
         
         chatBubbleView.layer.cornerRadius = 10
-        chatBubbleView.layer.borderColor = UIColor.white.cgColor
+        chatBubbleView.layer.borderColor = UIColor.gray.cgColor
         chatBubbleView.layer.borderWidth = 1
-        chatBubbleView.backgroundColor = .systemGray6
+        chatBubbleView.backgroundColor = .white
         chatBubbleView.clipsToBounds = true
         
         yourMessageLabel.textAlignment = .left
@@ -47,7 +47,9 @@ class YourChatTableViewCell: UITableViewCell {
 
     func configure(chat: Chat) {
         
-        
+        yourProfileImageView.image = UIImage(named: chat.user.image)
+        yourNameLabel.text = chat.user.name
+        yourMessageLabel.text = chat.message
         
     }
     
