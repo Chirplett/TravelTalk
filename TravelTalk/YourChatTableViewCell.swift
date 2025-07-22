@@ -17,6 +17,14 @@ class YourChatTableViewCell: UITableViewCell {
 
     static let yourIdentifier = "YourChatTableViewCell"
     
+    override func layoutSubviews() {
+        
+        layoutIfNeeded()
+        
+        yourProfileImageView.layer.cornerRadius = yourProfileImageView.frame.height / 2
+        yourProfileImageView.clipsToBounds = true
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

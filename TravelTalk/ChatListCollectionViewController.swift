@@ -7,18 +7,9 @@
 
 import UIKit
 
-class ChatListCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ChatListCollectionViewController: UIViewController, DesignProtocol {
     
-    @IBOutlet var searchChatsSearchBar: UISearchBar!
-    @IBOutlet var chatListCollectionView: UICollectionView!
-    
-    let chatListData = ChatList().list
-    let dateFormatter = DateFormatter()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.navigationItem.title = "TRAVEL TALK"
+    func configureView() {
         
         let xib = UINib(nibName: "ChatCollectionViewCell", bundle: nil)
             
@@ -41,6 +32,27 @@ class ChatListCollectionViewController: UIViewController, UICollectionViewDelega
         chatListCollectionView.collectionViewLayout = layout
         
     }
+    
+    
+    @IBOutlet var searchChatsSearchBar: UISearchBar!
+    @IBOutlet var chatListCollectionView: UICollectionView!
+    
+    let chatListData = ChatList().list
+    let dateFormatter = DateFormatter()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.navigationItem.title = "TRAVEL TALK"
+        
+        configureView()
+        
+    }
+    
+
+}
+
+extension ChatListCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return chatListData.count
@@ -80,6 +92,7 @@ class ChatListCollectionViewController: UIViewController, UICollectionViewDelega
         
         
     }
-
-
+    
+    
 }
+

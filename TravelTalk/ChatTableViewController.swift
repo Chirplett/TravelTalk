@@ -7,17 +7,9 @@
 
 import UIKit
 
-class ChatTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatTableViewController: UIViewController, DesignProtocol {
     
-    @IBOutlet var ChatGroundTableView: UITableView!
-    @IBOutlet var PutMessageTextView: UITextView!
-    
-    let chatListData = ChatList().list
-    var linkedChatData: ChatRoom?
-    let dateFormatter = DateFormatter()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func configureView() {
         
         let myNibName = UINib(nibName: MyChatTableViewCell.myIdentifier, bundle: nil)
         ChatGroundTableView.register(myNibName, forCellReuseIdentifier: MyChatTableViewCell.myIdentifier)
@@ -40,9 +32,27 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
             }
         }
-        
     }
     
+    
+    @IBOutlet var ChatGroundTableView: UITableView!
+    @IBOutlet var PutMessageTextView: UITextView!
+    
+    let chatListData = ChatList().list
+    var linkedChatData: ChatRoom?
+    let dateFormatter = DateFormatter()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureView()
+
+        
+    }
+
+}
+
+extension ChatTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return linkedChatData?.chatList.count ?? 0
@@ -81,8 +91,8 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 
                 cell.sentTimeLabel.text = updatedDate
                 
-                cell.yourProfileImageView.layer.cornerRadius = cell.yourProfileImageView.frame.height / 2
-                cell.yourProfileImageView.clipsToBounds = true
+//                cell.yourProfileImageView.layer.cornerRadius = cell.yourProfileImageView.frame.height / 2
+//                cell.yourProfileImageView.clipsToBounds = true
                 
                 return cell
                 
@@ -99,5 +109,6 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return UITableView.automaticDimension
         
     }
+    
 }
 

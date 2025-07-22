@@ -44,7 +44,7 @@ class ChatCollectionViewCell: UICollectionViewCell {
         
         chatRoomTitleLabel.text = list.chatroomName
         
-        if list.chatList.count == 0 {
+        if list.chatList.isEmpty {
             lastMessageLabel.text = ""
             sentDateLabel.text = ""
         } else {
